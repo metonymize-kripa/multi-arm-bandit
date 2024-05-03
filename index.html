@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stag Chase Game</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  body { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+    flex-direction: column;
+  }
+  .scoreboard {
+    position: absolute;
+    top: 0;
+    padding: 10px;
+    font-size: 24px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  .hidden {
+    display: none;
+  }
+  #score1 { color: red; }
+  #score2 { color: blue; }
+  #scoreboard1 { left: 10px; }
+  #scoreboard2 { right: 10px; }
+  canvas { 
+    background-color: #f0f0f0; 
+    margin-top: 20px; /* Ensure canvas is below scoreboards */
+  }
+</style>
+</head>
+<body>
+<h1 class="text-center mb-4" style="font-size: 50px;">Stag Chase Game</h1>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <select id="aiModeSelector" class="form-select" style="width: auto;">
+      <option selected>No AI</option>
+      <option>Competitive</option>
+      <option>Random</option>
+      <option>Cooperative</option>
+    </select>
+</div>
+
+<div id="scoreboard1" class="scoreboard hidden">Player 1 Score: <span id="score1">0</span></div>
+<div id="scoreboard2" class="scoreboard hidden">Player 2 Score: <span id="score2">0</span></div>
+<!-- Comments -->
+<!-- Create a row with two divs, one for canvas and other for table side by side-->
+<!-- Canvas will be on the left and table on the right -->
+<!-- Canvas will be 800x600 pixels and table will be 400 pixels wide -->
+<div class="row">
+    <div class="col-8">
+        <canvas id="gameCanvas" width="800" height="600" tabindex="0"></canvas>
+    </div>
+    <div class="col-4">
+        <div class="mt-3">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Time to Catch (seconds)</th>
+                        <th scope="col">Distance Between Hunters (pixels)</th>
+                    </tr>
+                </thead>
+                <tbody id="gameMetrics">
+                    <!-- Game metrics will be inserted here -->
+                </tbody>
+            </table>
+            <button id="downloadCsv" class="btn btn-primary mb-2">Download CSV</button>
+        </div>
+    </div>
+</div>
+<script src="game_log_ai.js"></script>
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+</body>
+</html>
