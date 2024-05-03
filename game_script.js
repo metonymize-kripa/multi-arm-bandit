@@ -18,7 +18,7 @@ function initializeRewards() {
 let nextChange = initializeRewards();
 
 function simulatedPlayer() {
-    if (strategy === "random" || Math.random() < epsilon) {
+    if (true) {//(strategy === "random" || Math.random() < epsilon) {
         return Math.floor(Math.random() * 3);  // Explore: choose randomly
     } else {
         return estimatedRewards.indexOf(Math.max(...estimatedRewards));  // Exploit: choose the best estimated arm
