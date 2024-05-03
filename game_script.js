@@ -12,10 +12,7 @@ let chosenCounts = [0, 0, 0];  // Counts of choices for each arm
 function initializeRewards() {
     rewards = [Math.random(), Math.random(), Math.random()];
     // Log initial rewards as change 0
-    changesLog.push({
-        change: 0,
-        rewards: [...rewards]  // Copy the rewards array to prevent mutation
-    });
+    changesLog.push({ round: round, try: 0, newRewards: [...rewards.map(r => r.toFixed(2))] });
     let changeTime = Math.floor(Math.random() * 16) + 5;  // Between 5 and 20
     return changeTime;
 }
