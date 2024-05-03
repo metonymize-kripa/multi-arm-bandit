@@ -63,7 +63,7 @@ function setupTableForNewRound() {
     headerRow.innerHTML = '<th>Round</th>';  // Reset header
     for (let i = 1; i <= maxTries; i++) {
         const th = document.createElement('th');
-        th.textContent = `Try ${i} User & Sim`;
+        th.textContent = `Try ${i}`;
         headerRow.appendChild(th);
     }
     const tableBody = document.getElementById('resultsTable').getElementsByTagName('tbody')[0];
